@@ -27,6 +27,31 @@ I want to collect the text for a certain figure or table from user input. The fo
 
 ![image](https://user-images.githubusercontent.com/73667373/145758471-385355e3-4a35-414f-8316-119e6c0f13ad.png)
 
+### Implementation Approach
+
+Although initially the project was intended to run on Amazon EMR cluster, I decided to implement the project on Google Colab due to credit issue with Amazon Educate account. Using colab has its own set of benefits. First of all, it's free of cost, the develoment is hassle free, and the flexibility is more than enough to implement this project.
+
+![image](https://user-images.githubusercontent.com/73667373/145764325-047698a1-4d66-48c6-9d00-7348cfc9049f.png) ![image](https://user-images.githubusercontent.com/73667373/145763747-f61f56b7-8e6b-4681-8988-ee35d9d82943.png)
+
+I have set up my own Spark cluster and Hadoop FS on runtime with the state-of-the-art software release versions of both. I have also implemented necessary code to monitor spark jobs through UI which looks like following.
+
+<img width="1280" alt="Screen Shot 2021-12-13 at 1 07 53 AM" src="https://user-images.githubusercontent.com/73667373/145761258-34cc2673-4edb-4712-b760-119ef188f121.png">
+
+### Algorithms
+
+I have used SparkContext Parallelize module to load the pre-processed data into RDD. The RDDs are then used to create dataframe. To match pattern, I have custom built REGEX pattern that would match the pattern we observed in common paper. Based on the pattern, we would then output the dataframe filtered by the REGEX pattern.
+
+To get the best match of the user queried text, I have used fuzzy string matching algorithm that would provide us with the suggestions of the best matched sentences from the text.
+
+### Tools
+
+I have used **ngrok** to tunnel localhost output so I could monitor the Spark jobs and debug if necessary.
+
+I have **Natural Language Toolkit, NLTK** to preprocess the data so we could load sentences in the datframe. Moreover, I have used the approximate string matching algorithm that is implemented through the library of **FuzzyWuzzy**.
+
+![image](https://user-images.githubusercontent.com/73667373/145763437-37ac1cbc-e2c6-4be4-abb6-9bf5efe4064c.png) ![image](https://user-images.githubusercontent.com/73667373/145763884-55e81683-45df-4f3f-bafd-b6ec2aeb9225.png)
+
+
 You can use the [editor on GitHub](https://github.com/mrashid2/mrashid2.github.io/edit/main/index.md) to maintain and preview the content for your website in Markdown files.
 
 Whenever you commit to this repository, GitHub Pages will run [Jekyll](https://jekyllrb.com/) to rebuild the pages in your site, from the content in your Markdown files.
