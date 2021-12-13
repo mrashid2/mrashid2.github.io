@@ -45,45 +45,53 @@ To get the best match of the user queried text, I have used fuzzy string matchin
 
 ### Tools
 
-I have used **ngrok** to tunnel localhost output so I could monitor the Spark jobs and debug if necessary.
+I have utilized an online tool (https://pdftotext.com/) to convert the pdf files of research papers into text files. I have used **ngrok** to tunnel localhost output so I could monitor the Spark jobs and debug if necessary.
+
+![image](https://user-images.githubusercontent.com/73667373/145763884-55e81683-45df-4f3f-bafd-b6ec2aeb9225.png)
 
 I have **Natural Language Toolkit, NLTK** to preprocess the data so we could load sentences in the datframe. Moreover, I have used the approximate string matching algorithm that is implemented through the library of **FuzzyWuzzy**.
 
-![image](https://user-images.githubusercontent.com/73667373/145763437-37ac1cbc-e2c6-4be4-abb6-9bf5efe4064c.png) ![image](https://user-images.githubusercontent.com/73667373/145763884-55e81683-45df-4f3f-bafd-b6ec2aeb9225.png)
+![image](https://user-images.githubusercontent.com/73667373/145763437-37ac1cbc-e2c6-4be4-abb6-9bf5efe4064c.png)
 
+### Datasets
 
-You can use the [editor on GitHub](https://github.com/mrashid2/mrashid2.github.io/edit/main/index.md) to maintain and preview the content for your website in Markdown files.
+Since my implementation has no correlation with the quantity of the data, I have chosen to experiment with only text file of five research papers. The five research papers have significant variations in content which are sufficient enough to prove the efficacy of our proposed and implemented features.
 
-Whenever you commit to this repository, GitHub Pages will run [Jekyll](https://jekyllrb.com/) to rebuild the pages in your site, from the content in your Markdown files.
+### Results
 
-### Markdown
+Following are the sinppets of the results that were collected after different features of my project.
 
-Markdown is a lightweight and easy-to-use syntax for styling your writing. It includes conventions for
+#### Citation Lookup
+![Screen Shot 2021-12-13 at 2 01 18 AM](https://user-images.githubusercontent.com/73667373/145766817-ebc68ae1-ac27-447b-ad8f-1f9b0aee6c1e.png)
 
-```markdown
-Syntax highlighted code block
+##### Table Lookup
+![Screen Shot 2021-12-13 at 2 02 26 AM](https://user-images.githubusercontent.com/73667373/145766922-455ea6d9-f5f8-465c-8969-397967ef6ece.png)
 
-# Header 1
-## Header 2
-### Header 3
+#### Figure Lookup
+![Screen Shot 2021-12-13 at 2 04 03 AM](https://user-images.githubusercontent.com/73667373/145767173-b5742ac2-2d4d-4c17-ba86-5919b3976877.png)
 
-- Bulleted
-- List
+#### Fuzzy Text Match
+![Screen Shot 2021-12-13 at 2 04 50 AM](https://user-images.githubusercontent.com/73667373/145767214-e0b398a8-ffd1-4b76-863e-edd8de08d8c7.png)
 
-1. Numbered
-2. List
+### Evaluations
 
-**Bold** and _Italic_ and `Code` text
+The evaluation is qualitative evaluation, not the quantative evaluation. The citation, table, and figure lookup modules all were able to properly locate relevant text from the data and represent to the user. However, the fuzzy text match algorithm hyperparametrs need to be tweaked and the input needs to be thoughtful to get the best outcome from the approximate text match module.
 
-[Link](url) and ![Image](src)
-```
+### Achievements
 
-For more details see [Basic writing and formatting syntax](https://docs.github.com/en/github/writing-on-github/getting-started-with-writing-and-formatting-on-github/basic-writing-and-formatting-syntax).
+#### Will Achieve
 
-### Jekyll Themes
+1. Process pdf data to text data. (**Implemented**)
+2. Load text data in RDD or Dataframe.(**Implemented**)
+3. Complete appropriate regex pattern matching.(**Implemented**)
+4. Do above for at least one research paper in the dataset.(**Implemented**)
 
-Your Pages site will use the layout and styles from the Jekyll theme you have selected in your [repository settings](https://github.com/mrashid2/mrashid2.github.io/settings/pages). The name of this theme is saved in the Jekyll `_config.yml` configuration file.
+#### Likely, Will Achieve
 
-### Support or Contact
+1. Based on the matched pattern, extract the sentence or paragraph from the text.(**Implemented**)
+2. Do above for multiple papers in the dataset.(**Implemented**)
 
-Having trouble with Pages? Check out our [documentation](https://docs.github.com/categories/github-pages-basics/) or [contact support](https://support.github.com/contact) and we’ll help you sort it out.
+#### Ideally, Will Achieve
+
+1. Be able to implement fuzzy string matching and from there properly extract the intended text.(**Implemented**)
+2. Do above for all the research papers in the dataset.(**Implemented**)
